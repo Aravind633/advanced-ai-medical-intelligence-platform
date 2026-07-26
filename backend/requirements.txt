@@ -1,0 +1,12 @@
+fastapi==0.109.2
+uvicorn==0.27.1
+python-multipart==0.0.9
+sqlalchemy
+torch
+torchvision
+grad-cam
+opencv-python-headless
+pillow
+groq
+python-dotenv
+pydantic
