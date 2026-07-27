@@ -14,7 +14,8 @@ const HistoryTab = () => {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/history');
+      const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+      const response = await axios.get(`${API_URL}/api/history`);
       setHistory(response.data);
     } catch (error) {
       console.error('Failed to fetch history', error);
@@ -100,12 +101,12 @@ const HistoryTab = () => {
               {/* Card Header (Images) */}
               <div className="h-40 bg-slate-950 relative overflow-hidden flex">
                 <div className="w-1/2 relative border-r border-slate-800">
-                  <img src={record.original_image_url} alt="Original" className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
+                  <img src={`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${record.original_image_url}`} alt="Original" className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
                   <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-950/80 px-2 py-0.5 rounded">X-Ray</span>
                 </div>
                 <div className="w-1/2 relative">
-                  <img src={record.heatmap_image_url} alt="Heatmap" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+                  <img src={`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${record.heatmap_image_url}`} alt="Heatmap" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
                   <span className="absolute bottom-2 right-2 text-[10px] font-bold uppercase tracking-wider text-cyan-400 bg-slate-950/80 px-2 py-0.5 rounded border border-cyan-500/20">Grad-CAM</span>
                 </div>

@@ -74,7 +74,7 @@ const ResultsView = ({ result, onReset }) => {
                 </div>
                 <div className="aspect-square rounded-2xl bg-slate-950 border border-white/10 overflow-hidden relative group shadow-inner">
                   <img 
-                    src={result.original_image_url} 
+                    src={`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${result.original_image_url}`} 
                     alt="Original" 
                     className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700"
                   />
@@ -94,7 +94,7 @@ const ResultsView = ({ result, onReset }) => {
                 </div>
                 <div className="aspect-square rounded-2xl bg-slate-950 border border-white/10 overflow-hidden relative group shadow-inner">
                   <img 
-                    src={result.heatmap_image_url} 
+                    src={`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${result.heatmap_image_url}`} 
                     alt="Heatmap" 
                     className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-700"
                   />

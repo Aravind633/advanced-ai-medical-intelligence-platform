@@ -55,7 +55,8 @@ const UploadZone = ({ onUploadSuccess }) => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/predict', formData, {
+      const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+      const response = await axios.post(`${API_URL}/api/predict`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

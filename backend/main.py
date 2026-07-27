@@ -76,8 +76,8 @@ async def predict_image(file: UploadFile = File(...), db: Session = Depends(get_
             "predicted_class": history_record.predicted_class,
             "confidence": history_record.confidence,
             "report": history_record.llm_report,
-            "original_image_url": f"http://localhost:8000/uploads/{image_filename}",
-            "heatmap_image_url": f"http://localhost:8000/heatmaps/{heatmap_filename}"
+            "original_image_url": f"/uploads/{image_filename}",
+            "heatmap_image_url": f"/heatmaps/{heatmap_filename}"
         }
         
     except Exception as e:
@@ -94,8 +94,8 @@ async def get_history(db: Session = Depends(get_db)):
             "predicted_class": r.predicted_class,
             "confidence": r.confidence,
             "report": r.llm_report,
-            "original_image_url": f"http://localhost:8000{r.original_image_path}",
-            "heatmap_image_url": f"http://localhost:8000{r.heatmap_image_path}"
+            "original_image_url": f"{r.original_image_path}",
+            "heatmap_image_url": f"{r.heatmap_image_path}"
         }
         for r in records
     ]

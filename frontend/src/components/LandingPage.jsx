@@ -125,10 +125,6 @@ const LandingPage = ({ onStart }) => {
             <button onClick={onStart} className="bg-primary text-on-primary px-6 py-3 rounded hover:bg-primary-container transition-colors text-label-md font-label-md font-bold flex items-center justify-center gap-2">
               Start Diagnosis<span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </button>
-            <button className="bg-transparent border border-primary text-primary px-6 py-3 rounded hover:bg-primary/10 transition-colors text-label-md font-label-md flex items-center justify-center gap-2">
-              View Clinical Trials
-              <span className="material-symbols-outlined text-[18px]">biotech</span>
-            </button>
           </div>
           {/* Quick Stats */}
           <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/10">
